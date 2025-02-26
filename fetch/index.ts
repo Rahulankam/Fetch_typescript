@@ -32,35 +32,35 @@ interface UserData {
   }
   
 
-  fetchUserData().then((data) => {
-    if (data) {
-      console.log('User Data:', data);
+  // fetchUserData().then((data) => {
+  //   if (data) {
+  //     console.log('User Data:', data);
+  //   } else {
+  //     console.log('No data found.');
+  //   }
+  // });
+
+  // Example usage
+  fetchUserData().then((users) => {
+    if (users && users.length > 0) {
+      console.log('User Data:');
+      users.forEach((user) => {
+        console.log({
+          id: user.id,
+          name: user.name,
+          username: user.username,
+          email: user.email,
+          address: {
+            street: user.address.street,
+            suite: user.address.suite,
+            city: user.address.city,
+            zipcode: user.address.zipcode,
+            geo: user.address.geo,
+          },
+        });
+      });
     } else {
-      console.log('No data found.');
+      console.log('No user data found.');
     }
   });
-
-//   // Example usage
-//   fetchUserData().then((users) => {
-//     if (users && users.length > 0) {
-//       console.log('User Data:');
-//       users.forEach((user) => {
-//         console.log({
-//           id: user.id,
-//           name: user.name,
-//           username: user.username,
-//           email: user.email,
-//           address: {
-//             street: user.address.street,
-//             suite: user.address.suite,
-//             city: user.address.city,
-//             zipcode: user.address.zipcode,
-//             geo: user.address.geo,
-//           },
-//         });
-//       });
-//     } else {
-//       console.log('No user data found.');
-//     }
-//   });
   
